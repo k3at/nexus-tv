@@ -1,0 +1,17 @@
+{
+  "name": "nexus-tv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXUS//TV - live channel aggregator with stream health testing, player, admin + visitor code access",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "smoke": "node scripts/smoke-test.mjs",
+    "refresh": "node scripts/refresh-catalog.mjs"
+  },
+  "license": "MIT"
+}

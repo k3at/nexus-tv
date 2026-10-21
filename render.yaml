@@ -1,0 +1,36 @@
+# Render.com blueprint - free web service.
+# Create the repo on GitHub, then:  New > Blueprint > point at this repo.
+services:
+  - type: web
+    name: nexus-tv
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: "npm install --omit=dev --no-audit --no-fund"
+    startCommand: "node server/index.js"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_USER
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: REQUIRE_LOGIN
+        value: "true"
+      - key: ALLOW_CUSTOM_STREAMS
+        value: "true"
+      # Optional: persist visitor codes on ephemeral disks (free Upstash or a GitHub repo KV)
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
