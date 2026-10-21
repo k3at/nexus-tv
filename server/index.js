@@ -336,7 +336,8 @@ async function serveStatic(req, res, url) {
       'Content-Type': MIME[ext] || 'application/octet-stream',
       'Content-Length': stat.size,
       ETag: etag,
-      'Cache-Control': isHtml ? 'no-cache' : 'public, max-age=3600',
+      // revalidate every time (cheap 304s) so a redeploy never serves stale css/js
+      'Cache-Control': isHtml ? 'no-cache' : 'no-cache, must-revalidate',
     });
     fs.createReadStream(filePath).pipe(res);
   });
