@@ -2,7 +2,38 @@
  * Runtime configuration. Everything is env driven so the same build can run
  * locally, on a free VPS, or on an ephemeral container host.
  */
+import fs from 'node:fs';
 import path from 'node:path';
+
+/**
+ * Minimal .env loader (no dependencies). Existing process env always wins.
+ * Works both for a local .env file and for hosts that mount secrets as files.
+ */
+function loadDotEnv(file = path.join(process.cwd(), '.env')) {
+  let raw;
+  try {
+    raw = fs.readFileSync(file, 'utf8');
+  } catch {
+    return;
+  }
+  for (const rawLine of raw.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const eq = line.indexOf('=');
+    if (eq < 0) continue;
+    const key = line.slice(0, eq).trim();
+    let value = line.slice(eq + 1).trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+    if (key && process.env[key] === undefined) process.env[key] = value;
+  }
+}
+
+loadDotEnv();
 
 const bool = (v, fallback) => {
   if (v === undefined || v === null || v === '') return fallback;
