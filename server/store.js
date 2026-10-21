@@ -84,7 +84,7 @@ export class FileStore {
     this.timer = setTimeout(() => {
       this.timer = null;
       this.flush();
-    }, 8000);
+    }, 20000);
     this.timer.unref?.();
   }
   async flush() {

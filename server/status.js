@@ -62,7 +62,7 @@ export class StatusStore {
     this.timer = setTimeout(() => {
       this.timer = null;
       this.flush().catch((err) => console.error('[status] flush failed:', err.message));
-    }, 15000);
+    }, 45000);
     this.timer.unref?.();
   }
 
@@ -73,6 +73,8 @@ export class StatusStore {
     for (const i of shards) {
       const bucket = {};
       for (const [url, entry] of this.map) {
+        // 'unknown' results carry no value across restarts - skip them
+        if (entry.status === 'unknown') continue;
         if (hashCode(url) % this.shards === i) bucket[url] = entry;
       }
       await this.store.set(`st:${i}`, bucket);

@@ -2,6 +2,8 @@
 
 > Live channel intelligence grid — search any channel, test every source, watch only what actually works.
 
+**Live now:** **https://nexus-tv-yygq.onrender.com** (Render free tier, auto-deploys from this repo)
+
 A self-hosted IPTV front-end with a **live stream health scanner**. The app imports the public
 [iptv-org](https://github.com/iptv-org/iptv) dataset (10k+ channels / 16k+ sources), continuously
 probes every source, and **only lists channels that currently have a working stream**. Channels that
