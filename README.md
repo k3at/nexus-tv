@@ -2,7 +2,7 @@
 
 > Live channel intelligence grid — search any channel, test every source, watch only what actually works.
 
-**Live now:** **https://nexus-tv-yygq.onrender.com** (Render free tier, auto-deploys from this repo)
+**Live now:** **https://nexus-tv-yygq.onrender.com** (Render free tier, auto-deploys from this repo (Render free tier))
 
 A self-hosted IPTV front-end with a **live stream health scanner**. The app imports the public
 [iptv-org](https://github.com/iptv-org/iptv) dataset (10k+ channels / 16k+ sources), continuously
@@ -160,3 +160,10 @@ available streams. NEXUS//TV only *links* to those streams; it hosts no media it
 re-streams or stores content.
 
 `hls.js` is bundled under `public/vendor/` (Apache-2.0).
+
+### Live deployment
+
+- URL: https://nexus-tv-yygq.onrender.com
+- Source: https://github.com/k3at/nexus-tv
+- Runtime: Docker (node:22-alpine), single Node process, no npm dependencies
+- Render free tier spins down after inactivity (first request can take ~50s to wake).
