@@ -72,6 +72,34 @@ The app auto-selects the first one that works:
 3. **Local file** (`DATA_DIR`) — best with a mounted volume.
 4. **Memory** — fallback, data is lost on restart.
 
+A local `.env` file is loaded automatically at boot (no dependencies), so the same settings work
+locally, in Docker and on hosts that mount secrets as files.
+
+### Live deployment
+
+| | |
+| --- | --- |
+| **URL** | https://nexus-tv-yygq.onrender.com |
+| **Host** | Render free tier (Docker, Oregon) - spins down after inactivity, first request may take ~50s to wake |
+| **Source** | https://github.com/k3at/nexus-tv (commit `5b1f8dc`) |
+| **Persistence** | `GITHUB_REPO=k3at/nexus-tv-data` + `GITHUB_TOKEN` -> KV mirrored to `data/kv.json` in that private repo, so visitor codes/settings survive restarts |
+| **Redeploy** | Render dashboard -> *Manual Deploy* -> *Deploy latest commit* (auto-deploy is not enabled for plain public-repo connections - install the Render GitHub App on the repo to turn it on) |
+
+> The `GITHUB_TOKEN` currently in use is the GitHub CLI OAuth token. For production, replace it in
+> *Render -> Environment* with a **fine-grained PAT** scoped to `nexus-tv-data` only
+> (Contents: read & write). The app degrades gracefully to in-memory storage if the token expires.
+
+### Admin credentials
+
+```
+user: admin
+pass: NxTV-444656-51A0B7
+```
+
+Change it from the Admin panel (Admin -> Admin credentials), or by setting `ADMIN_PASSWORD` and
+redeploying. Visitor codes are created from *Admin -> Visitor codes* and can be edited, rotated,
+disabled, expired or deleted at any time.
+
 ---
 
 ## API
