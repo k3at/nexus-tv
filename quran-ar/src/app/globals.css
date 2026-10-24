@@ -4,48 +4,149 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 160 84% 39%;
+    /* فاتح هادئ — ألوان مخففة ودافئة */
+    --background: 40 27% 98%;
+    --foreground: 155 12% 20%;
+    --card: 40 33% 99%;
+    --card-foreground: 155 12% 20%;
+    --popover: 40 33% 99%;
+    --popover-foreground: 155 12% 20%;
+    --primary: 152 42% 33%;
+    --primary-foreground: 40 30% 99%;
+    --secondary: 40 18% 95%;
+    --secondary-foreground: 155 12% 24%;
+    --muted: 40 18% 95%;
+    --muted-foreground: 155 7% 44%;
+    --accent: 150 20% 94%;
+    --accent-foreground: 155 12% 22%;
+    --destructive: 8 55% 52%;
+    --destructive-foreground: 40 30% 99%;
+    --border: 40 14% 88%;
+    --input: 40 14% 88%;
+    --ring: 152 42% 40%;
     --radius: 0.5rem;
+    --ornament: 152 28% 30%;
+    --pattern-opacity: 0.035;
+    --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M48 8 L58 38 L88 48 L58 58 L48 88 L38 58 L8 48 L38 38 Z'/%3E%3Ccircle cx='48' cy='48' r='6'/%3E%3Cpath d='M24 24 L48 0 L72 24 L96 48 L72 72 L48 96 L24 72 L0 48 Z'/%3E%3C/g%3E%3C/svg%3E");
+    --corner-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='1.2'%3E%3Crect x='6' y='6' width='12' height='12'/%3E%3Crect x='6' y='6' width='12' height='12' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E");
   }
 
+  .light {
+    --background: 40 27% 98%;
+    --foreground: 155 12% 20%;
+    --card: 40 33% 99%;
+    --card-foreground: 155 12% 20%;
+    --primary: 152 42% 33%;
+    --primary-foreground: 40 30% 99%;
+    --secondary: 40 18% 95%;
+    --secondary-foreground: 155 12% 24%;
+    --muted: 40 18% 95%;
+    --muted-foreground: 155 7% 44%;
+    --accent: 150 20% 94%;
+    --accent-foreground: 155 12% 22%;
+    --border: 40 14% 88%;
+    --input: 40 14% 88%;
+    --ring: 152 42% 40%;
+  }
+
+  /* ورقي — سيبيا */
+  .sepia {
+    --background: 38 42% 94%;
+    --foreground: 28 25% 22%;
+    --card: 38 48% 96%;
+    --card-foreground: 28 25% 22%;
+    --popover: 38 48% 96%;
+    --popover-foreground: 28 25% 22%;
+    --primary: 30 42% 34%;
+    --primary-foreground: 40 50% 97%;
+    --secondary: 36 28% 90%;
+    --secondary-foreground: 28 25% 26%;
+    --muted: 36 28% 90%;
+    --muted-foreground: 30 14% 42%;
+    --accent: 34 30% 88%;
+    --accent-foreground: 28 25% 24%;
+    --destructive: 8 52% 48%;
+    --destructive-foreground: 40 50% 97%;
+    --border: 34 22% 82%;
+    --input: 34 22% 82%;
+    --ring: 30 42% 40%;
+    --ornament: 30 38% 30%;
+    --pattern-opacity: 0.05;
+  }
+
+  /* زمردي */
+  .emerald {
+    --background: 150 26% 96%;
+    --foreground: 160 25% 16%;
+    --card: 150 30% 98%;
+    --card-foreground: 160 25% 16%;
+    --popover: 150 30% 98%;
+    --popover-foreground: 160 25% 16%;
+    --primary: 160 55% 27%;
+    --primary-foreground: 150 40% 98%;
+    --secondary: 150 22% 92%;
+    --secondary-foreground: 160 25% 20%;
+    --muted: 150 22% 92%;
+    --muted-foreground: 160 12% 40%;
+    --accent: 152 26% 90%;
+    --accent-foreground: 160 25% 18%;
+    --destructive: 8 55% 50%;
+    --destructive-foreground: 150 40% 98%;
+    --border: 152 16% 84%;
+    --input: 152 16% 84%;
+    --ring: 160 55% 34%;
+    --ornament: 160 45% 22%;
+    --pattern-opacity: 0.045;
+  }
+
+  /* داكن */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 160 84% 39%;
+    --background: 160 12% 8%;
+    --foreground: 40 12% 92%;
+    --card: 160 12% 11%;
+    --card-foreground: 40 12% 92%;
+    --popover: 160 12% 11%;
+    --popover-foreground: 40 12% 92%;
+    --primary: 152 45% 55%;
+    --primary-foreground: 160 20% 10%;
+    --secondary: 160 10% 15%;
+    --secondary-foreground: 40 12% 90%;
+    --muted: 160 10% 15%;
+    --muted-foreground: 150 7% 62%;
+    --accent: 160 12% 17%;
+    --accent-foreground: 40 12% 90%;
+    --destructive: 8 62% 55%;
+    --destructive-foreground: 40 20% 97%;
+    --border: 160 9% 21%;
+    --input: 160 9% 21%;
+    --ring: 152 45% 50%;
+    --ornament: 150 40% 62%;
+    --pattern-opacity: 0.05;
+  }
+
+  /* ليلي أزرق */
+  .night {
+    --background: 222 28% 10%;
+    --foreground: 215 20% 92%;
+    --card: 222 28% 13%;
+    --card-foreground: 215 20% 92%;
+    --popover: 222 28% 13%;
+    --popover-foreground: 215 20% 92%;
+    --primary: 205 62% 58%;
+    --primary-foreground: 222 30% 10%;
+    --secondary: 222 22% 17%;
+    --secondary-foreground: 215 20% 90%;
+    --muted: 222 22% 17%;
+    --muted-foreground: 215 12% 64%;
+    --accent: 222 24% 19%;
+    --accent-foreground: 215 20% 90%;
+    --destructive: 8 62% 58%;
+    --destructive-foreground: 215 20% 97%;
+    --border: 222 20% 23%;
+    --input: 222 20% 23%;
+    --ring: 205 62% 55%;
+    --ornament: 205 55% 65%;
+    --pattern-opacity: 0.055;
   }
 }
 
@@ -53,17 +154,110 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(
+      1100px 480px at 50% -12%,
+      hsl(var(--primary) / 0.07),
+      transparent 70%
+    );
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* زخرفة إسلامية خفيفة في خلفية الموقع */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-color: hsl(var(--ornament));
+    opacity: var(--pattern-opacity);
+    -webkit-mask-image: var(--pattern);
+    mask-image: var(--pattern);
+    -webkit-mask-size: 96px 96px;
+    mask-size: 96px 96px;
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.18);
   }
 }
 
 .arabic-text {
   font-family: var(--font-arabic), serif;
-  line-height: 2;
+  line-height: 2.1;
 }
 
 .mushaf-text {
   font-family: var(--font-mushaf), var(--font-arabic), serif;
-  line-height: 2.5;
+}
+
+/* إطار المصحف المزخرف */
+.mushaf-frame {
+  position: relative;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  background-color: hsl(var(--card));
+  box-shadow:
+    0 18px 40px -28px hsl(var(--primary) / 0.45),
+    0 1px 0 hsl(var(--card));
+}
+
+.mushaf-frame::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid hsl(var(--primary) / 0.22);
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+
+.mushaf-frame::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  pointer-events: none;
+  background-color: hsl(var(--primary) / 0.4);
+  -webkit-mask-image: var(--corner-star), var(--corner-star), var(--corner-star),
+    var(--corner-star);
+  mask-image: var(--corner-star), var(--corner-star), var(--corner-star),
+    var(--corner-star);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 18px 18px;
+  mask-size: 18px 18px;
+  -webkit-mask-position: top 3px left 3px, top 3px right 3px, bottom 3px left 3px,
+    bottom 3px right 3px;
+  mask-position: top 3px left 3px, top 3px right 3px, bottom 3px left 3px,
+    bottom 3px right 3px;
+}
+
+.ornament-line {
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    hsl(var(--primary) / 0.35),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    transition: none;
+  }
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Naskh_Arabic, Inter } from "next/font/google";
+import { Noto_Naskh_Arabic, Inter, Amiri_Quran } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
@@ -9,6 +9,11 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-arabic",
+});
+const amiriQuran = Amiri_Quran({
+  subsets: ["arabic"],
+  weight: ["400"],
+  variable: "--font-mushaf",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +29,13 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${notoNaskhArabic.variable} font-sans antialiased`}
+        className={`${inter.variable} ${notoNaskhArabic.variable} ${amiriQuran.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem
+          enableSystem={false}
+          themes={["light", "sepia", "emerald", "dark", "night"]}
           disableTransitionOnChange
         >
           <Header />
